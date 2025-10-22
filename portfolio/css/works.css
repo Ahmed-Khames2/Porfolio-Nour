@@ -1,0 +1,118 @@
+.works-section {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #fff3e8, #fef6f0);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #b85c38;
+  margin-bottom: 50px;
+}
+
+.section-title span {
+  color: #e08b57;
+}
+
+.works-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.work-card {
+  position: relative;
+  width: 300px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.work-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.work-card img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.work-card:hover img {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(184, 92, 56, 0.8);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-align: center;
+  padding: 20px;
+}
+
+.work-card:hover .overlay {
+  opacity: 1;
+}
+
+.overlay h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.overlay p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.overlay .btn-primary {
+  background-color: #e08b57;
+  padding: 10px 20px;
+}
+
+.overlay .btn-primary:hover {
+  background-color: #b85c38;
+}
+
+/* Dark Mode */
+body.dark-mode .works-section {
+  background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
+}
+
+body.dark-mode .section-title {
+  color: #e08b57;
+}
+
+body.dark-mode .section-title span {
+  color: #b85c38;
+}
+
+body.dark-mode .overlay {
+  background: rgba(224, 139, 87, 0.8);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .work-card { width: 45%; height: auto; }
+  .work-card img { height: 300px; }
+}
+
+@media (max-width: 576px) {
+  .work-card { width: 90%; }
+  .work-card img { height: 250px; }
+}

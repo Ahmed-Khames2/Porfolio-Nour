@@ -1,0 +1,50 @@
+/* Global */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Cairo', sans-serif; line-height:1.6; background-color:#fef6f0; color:#333; transition: all 0.3s ease; }
+a { text-decoration:none; color:inherit; }
+.section { padding:80px 20px; }
+.section-title { font-size:2rem; margin-bottom:40px; text-align:center; color:#b85c38; }
+
+/* Navbar */
+.navbar {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:15px 40px; background-color:#fff1ea; position:fixed;
+  width:100%; top:0; z-index:999; box-shadow:0 5px 15px rgba(0,0,0,0.08); transition: all 0.3s ease;
+}
+.navbar .logo { font-size:2rem; color:#b85c38; font-weight:700; }
+.nav-links { list-style:none; display:flex; gap:25px; align-items:center; }
+.nav-links li a {
+  padding:8px 15px; border-radius:8px; font-weight:600; transition:0.3s;
+}
+.nav-links li a.active {
+  background-color: #e08b57; /* لون مميز للسيكشن الحالي */
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Dark/Light Mode Button */
+.mode-btn {
+  background:none; border:none; font-size:1.3rem; cursor:pointer; color:#b85c38; transition:0.3s;
+}
+body.dark-mode .mode-btn { color:#f0e6dc; }
+
+/* Menu Toggle (Responsive) */
+.menu-toggle { display:none; font-size:2rem; cursor:pointer; }
+@media(max-width:992px){
+  .nav-links {
+    position:fixed; top:70px; right:-100%; height:calc(100%-70px);
+    background-color:#fff1ea; flex-direction:column; align-items:center;
+    width:250px; gap:30px; padding-top:30px; transition:right 0.3s ease;
+  }
+  .nav-links.show { right:0; }
+  body.dark-mode .nav-links { background-color:#2a2a2a; }
+  .menu-toggle { display:block; }
+}
+
+/* Footer */
+.footer { text-align:center; padding:20px; background-color:#fff1ea; color:#5a3c2b; }
+
+/* Dark Mode */
+body.dark-mode { background-color:#1e1e1e; color:#f0e6dc; }
+body.dark-mode .navbar { background-color:#2a2a2a; }
+body.dark-mode .nav-links li a:hover { background-color:#b85c38; color:#fff; }
