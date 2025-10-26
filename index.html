@@ -3,6 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!--==================== UNICONS ====================-->
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+        
+        <!--==================== SWIPER CSS ====================-->
+        <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+        
+        <!--==================== CSS ====================-->
+        <!-- <link rel="stylesheet" href="./packages/css/styles.css"> -->
+
   <title>نور الدين أيمن - الكاتب</title>
   <link rel="stylesheet" href="css/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
@@ -42,9 +51,14 @@
   <footer class="footer">
     <p>© 2025 جميع الحقوق محفوظة — نور الدين أيمن</p>
   </footer>
+  <!--==================== SCROLL TOP ====================-->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="uil uil-arrow-up scrollup__icon"></i>
+    </a>
+    
 
   <!-- Main JS -->
-  <script src="js/main.js"></script>
+  <script src="./js/main.js"></script>
   <script>
     // Loader لكل السيكشنات
     async function loadSection(id, file) {
@@ -56,5 +70,7 @@
     const sections = ['hero','about','skills','works','achievements','media','contact'];
     sections.forEach(section => loadSection(section, `sections/${section}.html`));
   </script>
+      <script src="./js/swiper-bundle.min.js"></script>
+
 </body>
 </html>

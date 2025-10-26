@@ -1,34 +1,31 @@
-const skillCards = document.querySelectorAll('.skill-card');
+document.addEventListener("DOMContentLoaded", () => {
+  const skillsContent = document.getElementsByClassName('skills__content');
+  const skillsHeader = document.querySelectorAll('.skills__header');
 
-function animateSkills() {
-  skillCards.forEach(card => {
-    const progress = card.querySelector('.progress');
-    const value = card.querySelector('.progress-value');
-    const targetWidth = progress.getAttribute('data-progress');
+  // toggle open/close
+  function toggleSkills() {
+    const itemClass = this.parentNode.classList.contains('skills__open')
+      ? 'skills__close'
+      : 'skills__open';
 
-    let width = 0;
-    const interval = setInterval(() => {
-      if(width >= parseInt(targetWidth)) {
-        clearInterval(interval);
-      } else {
-        width++;
-        progress.style.width = width + '%';
-        value.textContent = width + '%';
-      }
-    }, 15);
-  });
-}
+    Array.from(skillsContent).forEach(item => item.classList.remove('skills__open'));
+    Array.from(skillsContent).forEach(item => item.classList.add('skills__close'));
+    this.parentNode.classList.remove('skills__close');
+    this.parentNode.classList.add(itemClass);
 
-// تحقق لو السيكشن ظهر على الشاشة
-function checkSkillsInView() {
-  const triggerBottom = window.innerHeight - 100;
-  const skillsTop = document.querySelector('.skills-section').getBoundingClientRect().top;
-
-  if(skillsTop < triggerBottom) {
-    animateSkills();
-    window.removeEventListener('scroll', checkSkillsInView);
+    // animate bars
+    if (itemClass === 'skills__open') {
+      const bars = this.parentNode.querySelectorAll('.skills__percentage');
+      bars.forEach(bar => {
+        bar.style.width = bar.dataset.width;
+      });
+    } else {
+      const bars = this.parentNode.querySelectorAll('.skills__percentage');
+      bars.forEach(bar => (bar.style.width = '0'));
+    }
   }
-}
 
-window.addEventListener('scroll', checkSkillsInView);
-window.addEventListener('load', checkSkillsInView);
+  skillsHeader.forEach(el => {
+    el.addEventListener('click', toggleSkills);
+  });
+});
